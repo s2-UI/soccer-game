@@ -1,0 +1,17 @@
+---
+interface Props {
+  extraClass: string;
+	title: string;
+}
+
+const { title, extraClass } = Astro.props;
+---
+
+<article class="bg-slate-900/90 p-4">
+  <header class="border-b border-slate-300 mb-2">
+    <h2 class="font-bold uppercase text-slate-400/70">{title}</h2>
+  </header>
+  <div class={extraClass}>
+    <slot />
+  </div>
+</article>

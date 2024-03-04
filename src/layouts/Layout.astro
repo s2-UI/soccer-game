@@ -1,51 +1,136 @@
 ---
+import '@fontsource-variable/onest';
+import Hexagon from '../components/icons/Hexagon.astro';
+import Currency from '../components/Currency';
+
+import { FaHome } from "react-icons/fa";
+import { FaShield } from "react-icons/fa6";
+import { FaUsers } from "react-icons/fa";
+
 interface Props {
 	title: string;
+	description: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
 	<body>
-		<slot />
+		<div class="sm-container h-dvh overflow-x-hidden">
+			<header class="h-16 flex justify-between p-2">
+				<div class="flex gap-2">
+					<img src="/img/shirts/default-player.png" alt="Camiseta">
+					<div>
+						<p class=" font-semibold">Nombre Equipo</p>
+						<div class="w-full">
+							<p class="text-right text-sm font-medium">50%</p>
+							<div class="w-full h-1 bg-slate-950">
+								<div class="w-1/2 h-full bg-blue-300"></div>
+							</div>
+						</div>
+					</div>
+					<Hexagon text={'18'} />
+				</div>
+				
+				<div class="flex gap-8 items-center">
+					<Currency text={'999.999.999'} type={0} />
+					<Currency text={'999.999.999'} type={1} />
+				</div>
+			</header>
+	
+			<aside class="bg-slate-950/90 py-4">
+				<nav class="flex flex-col gap-4 items-center text-2xl">
+					<a href="" class=""><FaHome /></a>
+					<a href="" class=""><FaShield /></a>
+					<a href="" class=""><FaUsers /></a>
+				</nav>
+			</aside>
+	
+			<main>
+				<slot />
+			</main>
+	
+			<footer class="bg-red-500 h-8 flex justify-between items-center px-4 text-sm">
+				<p>Soccer Manager EX</p>
+				<data value="">17:25:47 01/03/2024</data>
+			</footer>
+		</div>
 	</body>
 </html>
 <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
 	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
+		font-family: 'Onest Variable', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+		@apply text-slate-50;
 	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
+</style>
+
+<style>
+	.sm-container {
+		display: grid;
+		grid-template-columns: 4rem 1fr;
+		grid-template-rows: auto 1fr auto;
+		grid-template-areas:
+		'aside header'
+		'aside main'
+		'aside footer'
+		;
+	}
+
+	.sm-container::after {
+		content: '';
+
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-image: url('/img/bg-game.jpg');
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: cover;
+		z-index: -2;
+	}
+
+	.sm-container::before {
+		content: '';
+
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.2);
+		z-index: -1;
+	}
+
+	header {
+		grid-area: header;
+		background-color: rgba(1,1,1,.7);
+	}
+
+	aside {
+		grid-area: aside;
+		background-color: rgba(1,1,1,.7);
+	}
+
+	main {
+		grid-area: main;
+	}
+
+	footer {
+		grid-area: footer;
+		background-color: rgba(1,1,1,.7);
 	}
 </style>

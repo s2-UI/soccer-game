@@ -1,0 +1,51 @@
+---
+interface Props {
+	text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<div class='font-bold text-2xl w-12 relative'>
+  <svg
+    xmlns='http://www.w3.org/2000/svg'
+    xmlns:xlink='http://www.w3.org/1999/xlink'
+    x='0px'
+    y='0px'
+    viewBox='0 0 485.688 485.688'
+    xml:space='preserve'
+    class='white'
+    ><defs data-v-2562b565=''
+      ><linearGradient
+        data-v-2562b565=''
+        id='gradient-1442'
+        x1='0%'
+        y1='0%'
+        x2='0%'
+        y2='100%'
+        ><stop
+          data-v-2562b565=''
+          offset='0%'
+        ></stop>
+        <stop
+          data-v-2562b565=''
+          offset='100%'
+        ></stop></linearGradient
+      ></defs
+    >
+    <path
+      data-v-2562b565=''
+      fill='url(#gradient-1442)'
+      d='M364.269,453.155H121.416L0,242.844L121.416,32.533h242.853l121.419,210.312L364.269,453.155z M131.905,434.997h221.878    l110.939-192.152L353.783,50.691H131.905L20.966,242.844L131.905,434.997z'
+    ></path></svg
+  >
+  <div class="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+    {text}
+  </div>
+</div>
+
+<style>
+  .white stop {
+    stop-color: white;
+  }
+</style>
