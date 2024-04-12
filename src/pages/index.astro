@@ -1,131 +1,59 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import WidgetPanel from '../components/common/WidgetPanel.astro'
+import Chart from '../components/Chart'
 
-const teams = [
-  {
-    name: 'Nombre Equipo',
-    points: '14',
-    wins: '9',
-    plays: '5',
-  },
-  {
-    name: 'Nombre Equipo',
-    points: '14',
-    wins: '9',
-    plays: '5',
-  },
-  {
-    name: 'Nombre Equipo',
-    points: '14',
-    wins: '9',
-    plays: '5',
-  },
-  {
-    name: 'Nombre Equipo',
-    points: '14',
-    wins: '9',
-    plays: '5',
-  },
-  {
-    name: 'Nombre Equipo',
-    points: '14',
-    wins: '9',
-    plays: '5',
-  },
-  {
-    name: 'Nombre Equipo',
-    points: '14',
-    wins: '9',
-    plays: '5',
-  },
-  {
-    name: 'Nombre Equipo',
-    points: '14',
-    wins: '9',
-    plays: '5',
-  },
-  {
-    name: 'Nombre Equipo',
-    points: '14',
-    wins: '9',
-    plays: '5',
-  },
-  {
-    name: 'Nombre Equipo',
-    points: '14',
-    wins: '9',
-    plays: '5',
-  },
-  {
-    name: 'Nombre Equipo',
-    points: '14',
-    wins: '9',
-    plays: '5',
-  },
-  {
-    name: 'Nombre Equipo',
-    points: '14',
-    wins: '9',
-    plays: '5',
-  },
-  {
-    name: 'Nombre Equipo',
-    points: '14',
-    wins: '9',
-    plays: '5',
-  },
-]
+import {Teams} from '../lib/data'
+import WidgetTable from '../components/common/WidgetTable.astro';
+
+Teams.sort((a, b) => b.points - a.points);
 ---
 
 <Layout
   title=''
   description=''
 >
-  <main class='p-4'>
-    <WidgetPanel title='Clasificación' extraClass=''>
-      <table>
-        <thead>
-          <tr>
-            <th>Pos</th>
-            <th class='content-left'>Equipo</th>
-            <th>Pts</th>
-            <th>Pj</th>
-            <th>Pg</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            teams.map(({ name, points, wins, plays }, index) => (
-              <div>
-                <tr>
-                  <td class='font-bold'>{index + 1}</td>
-                  <td class='content-left'>
-                    <img
-                      src=''
-                      alt=''
-                    />
-                    <p>{name}</p>
-                  </td>
-                  <td class='font-bold'>{points}</td>
-                  <td class='font-bold'>{wins}</td>
-                  <td class='font-bold'>{plays}</td>
-                </tr>
-              </div>
-            ))
-          }
-        </tbody>
-      </table>
+  <main class='container p-4 w-[91rem] grid gap-4 grid-cols-[30%1fr]'>
+    <WidgetPanel title='Clasificación'>
+      <WidgetTable>
+        <tr slot="header">
+          <th>Pos</th>
+          <th class='content-left'>Equipo</th>
+          <th>Pts</th>
+          <th>Pj</th>
+          <th>Pg</th>
+        </tr>
+
+        {
+          Teams.map(({ name, points, wins, plays }, index) => (
+            <div>
+              <tr>
+                <td class={`font-bold ${index === 0 || index === 1 ? 'green' : ''} ${index === 9 || index === 10 || index === 11 ? 'red' : ''}`}>{index + 1}</td>
+                <td class='content-left'>
+                  <img
+                    src=''
+                    alt=''
+                  />
+                  <p>{name}</p>
+                </td>
+                <td class='font-bold'>{points}</td>
+                <td class='font-bold'>{plays}</td>
+                <td class='font-bold'>{wins}</td>
+              </tr>
+            </div>
+          ))
+        }
+      </WidgetTable>
     </WidgetPanel>
 
 		<div class="grid grid-cols-2 grid-rows-2 gap-4">
 			<WidgetPanel title='Partidos' extraClass='flex flex-col justify-around h-[calc(100%-2rem)]'>
-				<div class="grid grid-cols-3">
+				<div class="grid grid-cols-3 p-2 bg-slate-500/10">
 					<div class="flex flex-col items-center justify-center">
 						<img class="w-12" src="/img/teams/183436923.png" alt="">
 						<p>Nombre Equipo</p>
 					</div>
-					<div class="flex flex-col items-center gap-2">
+					<div class="flex flex-col items-center justify-center gap-2">
 						<div class="flex justify-center items-center gap-2">
 							<span class="font-semibold text-2xl">3</span>
 							<span>-</span>
@@ -140,33 +68,33 @@ const teams = [
 						<p>Nombre Equipo</p>
 					</div>
 				</div>
-				<div class="grid grid-cols-3">
-					<div class="flex flex-col items-center">
+				<div class="grid grid-cols-3 p-2 bg-slate-500/10">
+					<div class="flex flex-col items-center justify-center">
 						<img class="w-12" src="/img/teams/183436923.png" alt="">
 						<p>Nombre Equipo</p>
 					</div>
-					<div class="flex flex-col items-center gap-2">
+					<div class="flex flex-col items-center justify-center gap-2">
 						<div class="flex flex-col justify-center items-center">
 							<span class="font-semibold">17:25:47</span>
 							<span class="font-semibold">01/03/2024</span>
 						</div>
 					</div>
-					<div class="flex flex-col items-center">
+					<div class="flex flex-col items-center justify-center">
 						<img class="w-12" src="/img/teams/726173891.png" alt="">
 						<p>Nombre Equipo</p>
 					</div>
 				</div>
 			</WidgetPanel>
 
-			<WidgetPanel title='Economía' extraClass=''>
+			<WidgetPanel title='Economía'>
+        <!-- <Chart client:load /> -->
+			</WidgetPanel>
+
+			<WidgetPanel title='Correo'>
 
 			</WidgetPanel>
 
-			<WidgetPanel title='Correo' extraClass=''>
-
-			</WidgetPanel>
-
-			<WidgetPanel title='Temporada' extraClass=''>
+			<WidgetPanel title='Temporada'>
 
 			</WidgetPanel>
 		</div>
@@ -174,14 +102,16 @@ const teams = [
 </Layout>
 
 <style>
-	main {
-		display: grid;
-		gap: 1rem;
-		grid-template-columns: 30% 1fr;
-	}
-
   table {
     @apply w-full text-center;
+  }
+
+  table .green {
+    @apply before:bg-green-400 before:w-1 before:block before:absolute before:top-0 before:bottom-0 before:left-0;
+  }
+
+  table .red {
+    @apply before:bg-red-400 before:w-1 before:block before:absolute before:top-0 before:bottom-0 before:left-0;
   }
 
 	thead {
@@ -193,7 +123,7 @@ const teams = [
   }
 
 	tbody td {
-    @apply py-2;
+    @apply py-2 relative;
   }
 
   table .content-left {

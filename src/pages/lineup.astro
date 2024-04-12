@@ -1,0 +1,51 @@
+---
+import WidgetPanel from '../components/common/WidgetPanel.astro'
+import WidgetTable from '../components/common/WidgetTable.astro'
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout
+  title=''
+  description=''
+>
+  <main class='container p-4 w-[91rem] grid grid-cols-2 gap-4'>
+    <WidgetPanel title='Squad'>
+      <div class='field'></div>
+    </WidgetPanel>
+
+    <WidgetPanel title='Lineup'>
+      <WidgetTable>
+        <tr slot="header">
+          <th>Nº</th>
+          <th class='content-left'>Name</th>
+          <th>Energy</th>
+        </tr>
+
+        <tr>
+          <td class='font-bold'>0</td>
+          <td class='content-left'>
+            <img
+              src=''
+              alt=''
+            />
+            <p>Nombre</p>
+          </td>
+          <td class='font-bold'>100</td>
+        </tr>
+      </WidgetTable>
+    </WidgetPanel>
+  </main>
+</Layout>
+
+<style>
+  .field {
+    background-image: url('/img/mid-field.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 84%;
+    height: 31rem;
+    margin: 0 auto;
+    opacity: .5;
+    transform: perspective(250px) rotateX(8deg);
+  }
+</style>
