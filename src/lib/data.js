@@ -4,6 +4,8 @@ export const Users = [
     name: '',
     shield: '',
     team: '',
+    currency: 999999999,
+    hardCurrency: 99999,
   },
 ]
 
@@ -15,7 +17,16 @@ export const Teams = [
     points: 0,
     wins: 0,
     plays: 0,
-    playerIds: ['1', '2']
+    players: [
+      {
+        playerId: '1',
+        isStarter: true,
+      },
+      {
+        playerId: '2',
+        isStarter: true,
+      },
+    ]
   },
   {
     id: '2',
@@ -24,7 +35,7 @@ export const Teams = [
     points: 0,
     wins: 0,
     plays: 0,
-    playerIds: []
+    players: []
   },
   {
     id: '3',
@@ -33,7 +44,7 @@ export const Teams = [
     points: 0,
     wins: 0,
     plays: 0,
-    playerIds: []
+    players: []
   },
   {
     id: '4',
@@ -42,7 +53,7 @@ export const Teams = [
     points: 0,
     wins: 0,
     plays: 0,
-    playerIds: []
+    players: []
   },
   {
     id: '5',
@@ -51,7 +62,7 @@ export const Teams = [
     points: 0,
     wins: 0,
     plays: 0,
-    playerIds: []
+    players: []
   },
   {
     id: '6',
@@ -60,7 +71,7 @@ export const Teams = [
     points: 0,
     wins: 0,
     plays: 0,
-    playerIds: []
+    players: []
   },
   {
     id: '7',
@@ -69,7 +80,7 @@ export const Teams = [
     points: 0,
     wins: 0,
     plays: 0,
-    playerIds: []
+    players: []
   },
   {
     id: '8',
@@ -78,7 +89,7 @@ export const Teams = [
     points: 0,
     wins: 0,
     plays: 0,
-    playerIds: []
+    players: []
   },
   {
     id: '9',
@@ -87,7 +98,7 @@ export const Teams = [
     points: 0,
     wins: 0,
     plays: 0,
-    playerIds: []
+    players: []
   },
   {
     id: '10',
@@ -96,7 +107,7 @@ export const Teams = [
     points: 0,
     wins: 0,
     plays: 0,
-    playerIds: []
+    players: []
   },
   {
     id: '11',
@@ -105,7 +116,7 @@ export const Teams = [
     points: 0,
     wins: 0,
     plays: 0,
-    playerIds: []
+    players: []
   },
   {
     id: '12',
@@ -114,7 +125,7 @@ export const Teams = [
     points: 0,
     wins: 0,
     plays: 0,
-    playerIds: []
+    players: []
   },
 ]
 
@@ -123,22 +134,28 @@ export const Players = [
     id: '1',
     name: 'Lluis Alsina',
     teamId: '1',
-
     dorsal: 25,
-
-    position: 'Midfielder',
-
+    position: 2,
     energy: 100,
     morale: 90,
     form: 80,
-
-    physical: 73,
-    duels: 75,
-    shooting: 80,
-    defense: 63,
-    passing: 77,
-    skills: 81,
-
+    isGoalkeeper: false, // Indica si el jugador es portero o no
+    attributes: {
+      speed: 75,
+      physical: 73,
+      shooting: 80,
+      passing: 77,
+      dribbling: 78,
+      defense: 63,
+    },
+    attributesGoalkeeper: {
+      reflexes: 0,
+      diving: 0,
+      handling: 0,
+      positioning: 0,
+      kicking: 0,
+      aerialReach: 0,
+    },
     globalStats: {
       gamesPlayed: 9,
       goals: 9,
@@ -146,7 +163,6 @@ export const Players = [
       yellowCards: 2,
       redCards: 0,
     },
-
     teamStats: {
       gamesPlayed: 9,
       goals: 9,
@@ -155,6 +171,375 @@ export const Players = [
       redCards: 0,
     }
   },
+  {
+    id: '2',
+    name: 'Joan Canet',
+    teamId: '1',
+    dorsal: 7,
+    position: 0,
+    energy: 100,
+    morale: 90,
+    form: 80,
+    isGoalkeeper: true, // Indica si el jugador es portero o no
+    attributes: {
+      speed: 0,
+      physical: 0,
+      shooting: 0,
+      passing: 0,
+      dribbling: 0,
+      defense: 0,
+    },
+    attributesGoalkeeper: {
+      reflexes: 70,
+      diving: 72,
+      handling: 76,
+      positioning: 80,
+      kicking: 72,
+      aerialReach: 68,
+    },
+    globalStats: {
+      gamesPlayed: 9,
+      goals: 9,
+      assists: 6,
+      yellowCards: 2,
+      redCards: 0,
+    },
+    teamStats: {
+      gamesPlayed: 9,
+      goals: 9,
+      assists: 6,
+      yellowCards: 1,
+      redCards: 0,
+    }
+  },
+  {
+    id: '3',
+    name: 'Marc Granero',
+    teamId: '1',
+    dorsal: 23,
+    position: 1,
+    energy: 100,
+    morale: 90,
+    form: 80,
+    isGoalkeeper: false, // Indica si el jugador es portero o no
+    attributes: {
+      speed: 82,
+      physical: 78,
+      shooting: 86,
+      passing: 76,
+      dribbling: 79,
+      defense: 80,
+    },
+    attributesGoalkeeper: {
+      reflexes: 0,
+      diving: 0,
+      handling: 0,
+      positioning: 0,
+      kicking: 0,
+      aerialReach: 0,
+    },
+    globalStats: {
+      gamesPlayed: 9,
+      goals: 9,
+      assists: 6,
+      yellowCards: 2,
+      redCards: 0,
+    },
+    teamStats: {
+      gamesPlayed: 9,
+      goals: 9,
+      assists: 6,
+      yellowCards: 1,
+      redCards: 0,
+    }
+  },
+  {
+    id: '4',
+    name: 'Marcos Guerrero',
+    teamId: '1',
+    dorsal: 22,
+    position: 1,
+    energy: 100,
+    morale: 90,
+    form: 80,
+    isGoalkeeper: false, // Indica si el jugador es portero o no
+    attributes: {
+      speed: 68,
+      physical: 65,
+      shooting: 67,
+      passing: 62,
+      dribbling: 64,
+      defense: 67,
+    },
+    attributesGoalkeeper: {
+      reflexes: 0,
+      diving: 0,
+      handling: 0,
+      positioning: 0,
+      kicking: 0,
+      aerialReach: 0,
+    },
+    globalStats: {
+      gamesPlayed: 9,
+      goals: 9,
+      assists: 6,
+      yellowCards: 2,
+      redCards: 0,
+    },
+    teamStats: {
+      gamesPlayed: 9,
+      goals: 9,
+      assists: 6,
+      yellowCards: 1,
+      redCards: 0,
+    }
+  },
+  {
+    id: '5',
+    name: 'Raúl Ledo',
+    teamId: '1',
+    dorsal: 33,
+    position: 1,
+    energy: 100,
+    morale: 90,
+    form: 80,
+    isGoalkeeper: false, // Indica si el jugador es portero o no
+    attributes: {
+      speed: 67,
+      physical: 64,
+      shooting: 68,
+      passing: 64,
+      dribbling: 64,
+      defense: 70,
+    },
+    attributesGoalkeeper: {
+      reflexes: 0,
+      diving: 0,
+      handling: 0,
+      positioning: 0,
+      kicking: 0,
+      aerialReach: 0,
+    },
+    globalStats: {
+      gamesPlayed: 9,
+      goals: 9,
+      assists: 6,
+      yellowCards: 2,
+      redCards: 0,
+    },
+    teamStats: {
+      gamesPlayed: 9,
+      goals: 9,
+      assists: 6,
+      yellowCards: 1,
+      redCards: 0,
+    }
+  },
+  {
+    id: '6',
+    name: 'Marc Pluvins',
+    teamId: '1',
+    dorsal: 91,
+    position: 2,
+    energy: 100,
+    morale: 90,
+    form: 80,
+    isGoalkeeper: false, // Indica si el jugador es portero o no
+    attributes: {
+      speed: 75,
+      physical: 73,
+      shooting: 78,
+      passing: 70,
+      dribbling: 75,
+      defense: 78,
+    },
+    attributesGoalkeeper: {
+      reflexes: 0,
+      diving: 0,
+      handling: 0,
+      positioning: 0,
+      kicking: 0,
+      aerialReach: 0,
+    },
+    globalStats: {
+      gamesPlayed: 9,
+      goals: 9,
+      assists: 6,
+      yellowCards: 2,
+      redCards: 0,
+    },
+    teamStats: {
+      gamesPlayed: 9,
+      goals: 9,
+      assists: 6,
+      yellowCards: 1,
+      redCards: 0,
+    }
+  },
+  {
+    id: '7',
+    name: 'Albert Dalmau',
+    teamId: '1',
+    dorsal: 30,
+    position: 1,
+    energy: 100,
+    morale: 90,
+    form: 80,
+    isGoalkeeper: false, // Indica si el jugador es portero o no
+    attributes: {
+      speed: 72,
+      physical: 74,
+      shooting: 74,
+      passing: 68,
+      dribbling: 70,
+      defense: 76,
+    },
+    attributesGoalkeeper: {
+      reflexes: 0,
+      diving: 0,
+      handling: 0,
+      positioning: 0,
+      kicking: 0,
+      aerialReach: 0,
+    },
+    globalStats: {
+      gamesPlayed: 9,
+      goals: 9,
+      assists: 6,
+      yellowCards: 2,
+      redCards: 0,
+    },
+    teamStats: {
+      gamesPlayed: 9,
+      goals: 9,
+      assists: 6,
+      yellowCards: 1,
+      redCards: 0,
+    }
+  },
+  {
+    id: '8',
+    name: 'John de la Cruz',
+    teamId: '1',
+    dorsal: 8,
+    position: 3,
+    energy: 100,
+    morale: 90,
+    form: 80,
+    isGoalkeeper: false, // Indica si el jugador es portero o no
+    attributes: {
+      speed: 75,
+      physical: 70,
+      shooting: 71,
+      passing: 68,
+      dribbling: 67,
+      defense: 77,
+    },
+    attributesGoalkeeper: {
+      reflexes: 0,
+      diving: 0,
+      handling: 0,
+      positioning: 0,
+      kicking: 0,
+      aerialReach: 0,
+    },
+    globalStats: {
+      gamesPlayed: 9,
+      goals: 9,
+      assists: 6,
+      yellowCards: 2,
+      redCards: 0,
+    },
+    teamStats: {
+      gamesPlayed: 9,
+      goals: 9,
+      assists: 6,
+      yellowCards: 1,
+      redCards: 0,
+    }
+  },
+  {
+    id: '9',
+    name: 'Albert Ruiz',
+    teamId: '1',
+    dorsal: 9,
+    position: 3,
+    energy: 100,
+    morale: 90,
+    form: 80,
+    isGoalkeeper: false, // Indica si el jugador es portero o no
+    attributes: {
+      speed: 75,
+      physical: 72,
+      shooting: 73,
+      passing: 73,
+      dribbling: 77,
+      defense: 78,
+    },
+    attributesGoalkeeper: {
+      reflexes: 0,
+      diving: 0,
+      handling: 0,
+      positioning: 0,
+      kicking: 0,
+      aerialReach: 0,
+    },
+    globalStats: {
+      gamesPlayed: 9,
+      goals: 9,
+      assists: 6,
+      yellowCards: 2,
+      redCards: 0,
+    },
+    teamStats: {
+      gamesPlayed: 9,
+      goals: 9,
+      assists: 6,
+      yellowCards: 1,
+      redCards: 0,
+    }
+  },
+  {
+    id: '10',
+    name: 'Alberto Arnalot',
+    teamId: '1',
+    dorsal: 1,
+    position: 0,
+    energy: 100,
+    morale: 90,
+    form: 80,
+    isGoalkeeper: false, // Indica si el jugador es portero o no
+    attributes: {
+      speed: 0,
+      physical: 0,
+      shooting: 0,
+      passing: 0,
+      dribbling: 0,
+      defense: 0,
+    },
+    attributesGoalkeeper: {
+      reflexes: 82,
+      diving: 87,
+      handling: 81,
+      positioning: 72,
+      kicking: 82,
+      aerialReach: 80,
+    },
+    globalStats: {
+      gamesPlayed: 9,
+      goals: 9,
+      assists: 6,
+      yellowCards: 2,
+      redCards: 0,
+    },
+    teamStats: {
+      gamesPlayed: 9,
+      goals: 9,
+      assists: 6,
+      yellowCards: 1,
+      redCards: 0,
+    }
+  }
 ]
 
 // Función para buscar un usuario por su ID
@@ -170,6 +555,68 @@ export function findTeamById(teamId) {
 // Función para buscar un jugador por su ID
 export function findPlayerById(playerId) {
   return Players.find(player => player.id === playerId);
+}
+
+// Función para formatear un numero en una moneda
+export function formatNumber(amount, isCurrency = false) {
+  if (isCurrency) {
+    return amount.toLocaleString('es-ES', {
+      style: 'currency',
+      currency: 'EUR',
+    });
+  } else {
+    return amount.toLocaleString('es-ES');
+  }
+}
+
+// Función para calcular media de un jugador
+export function calculatePlayerAverage(player, includeDecimals = false, useGoalkeeperAttributes = false) {
+  let attributeCount = 0;
+  let totalAttributes = 0;
+
+  // Función para sumar los atributos no nulos
+  const sumNonZeroAttributes = (attributes) => {
+    for (const key in attributes) {
+      if (Object.hasOwnProperty.call(attributes, key) && attributes[key] !== 0) {
+        totalAttributes += attributes[key];
+        attributeCount++;
+      }
+    }
+  };
+
+  // Suma los atributos relevantes del jugador
+  sumNonZeroAttributes(player.attributes);
+
+  // Si el jugador es un portero y se solicita, también suma los atributos específicos del portero
+  if (player.isGoalkeeper && useGoalkeeperAttributes) {
+    sumNonZeroAttributes(player.attributesGoalkeeper);
+  }
+
+  // Calcula la media de los atributos del jugador
+  let average = totalAttributes / attributeCount;
+
+  // Redondea la media si includeDecimals es false
+  if (!includeDecimals) {
+    average = Math.round(average);
+  }
+
+  return average;
+}
+
+// Función para devolver el nombre de la posicion
+export function getPositionName(position, abbreviated = false) {
+  switch (position) {
+    case 0:
+      return abbreviated ? 'POR' : 'Portero';
+    case 1:
+      return abbreviated ? 'DEF' : 'Defensa';
+    case 2:
+      return abbreviated ? 'MC' : 'Medio';
+    case 3:
+      return abbreviated ? 'DL' : 'Delantero';
+    default:
+      return abbreviated ? 'OT' : 'Otro';
+  }
 }
 
 // Función para simular los partidos

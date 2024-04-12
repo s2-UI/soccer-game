@@ -2,6 +2,7 @@
 import WidgetPanel from '../components/common/WidgetPanel.astro'
 import WidgetTable from '../components/common/WidgetTable.astro'
 import Layout from '../layouts/Layout.astro'
+import { Players, calculatePlayerAverage } from '../lib/data'
 ---
 
 <Layout
@@ -18,20 +19,32 @@ import Layout from '../layouts/Layout.astro'
         <tr slot="header">
           <th>Nº</th>
           <th class='content-left'>Name</th>
+          <th>Forma</th>
+          <th>Moral</th>
           <th>Energy</th>
+          <th>Average</th>
         </tr>
 
-        <tr>
-          <td class='font-bold'>0</td>
-          <td class='content-left'>
-            <img
-              src=''
-              alt=''
-            />
-            <p>Nombre</p>
-          </td>
-          <td class='font-bold'>100</td>
-        </tr>
+        {
+          Players.map((player, index) => (
+            <tr>
+              <td class='font-bold'>{player.dorsal}</td>
+              <td class='content-left'>
+                <img
+                  src=''
+                  alt=''
+                />
+                <p>{player.name}</p>
+              </td>
+              <td class='font-bold'>{player.form}</td>
+              <td class='font-bold'>{player.morale}</td>
+              <td class='font-bold'>{player.energy}</td>
+              <td class='font-bold'>{calculatePlayerAverage(player, false, player.isGoalkeeper ? true : false)}</td>
+            </tr>
+          ))
+        }
+
+        
       </WidgetTable>
     </WidgetPanel>
   </main>

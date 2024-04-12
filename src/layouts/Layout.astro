@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
 import '@fontsource-variable/onest';
 import Hexagon from '../components/icons/Hexagon.astro';
 import Currency from '../components/Currency';
@@ -6,6 +7,7 @@ import Currency from '../components/Currency';
 import { FaHome } from "react-icons/fa";
 import { FaShield } from "react-icons/fa6";
 import { FaUsers } from "react-icons/fa";
+import { findUserById, formatNumber } from '../lib/data';
 
 interface Props {
 	title: string;
@@ -24,6 +26,7 @@ const { title, description } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<ViewTransitions />
 	</head>
 	<body>
 		<div class="sm-container h-dvh overflow-x-hidden">
@@ -43,8 +46,8 @@ const { title, description } = Astro.props;
 				</div>
 				
 				<div class="flex gap-8 items-center">
-					<Currency text={'999.999.999'} type={0} />
-					<Currency text={'999.999.999'} type={1} />
+					<Currency transition:persist text={formatNumber(findUserById('1').currency, true)} type={0} />
+					<Currency transition:persist text={formatNumber(findUserById('1').hardCurrency)} type={1} />
 				</div>
 			</header>
 	
