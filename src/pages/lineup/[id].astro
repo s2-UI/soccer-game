@@ -1,8 +1,8 @@
 ---
-import WidgetPanel from '../components/common/WidgetPanel.astro'
-import WidgetTable from '../components/common/WidgetTable.astro'
-import Layout from '../layouts/Layout.astro'
-import { Players, calculatePlayerAverage } from '../lib/data'
+import WidgetPanel from '../../components/common/WidgetPanel.astro'
+import WidgetTable from '../../components/common/WidgetTable.astro'
+import Layout from '../../layouts/Layout.astro'
+import { Players, calculatePlayerAverage } from '../../lib/data.js'
 ---
 
 <Layout
@@ -43,9 +43,9 @@ import { Players, calculatePlayerAverage } from '../lib/data'
             </tr>
           ))
         }
-
-        
       </WidgetTable>
+
+      
     </WidgetPanel>
   </main>
 </Layout>
@@ -58,7 +58,7 @@ import { Players, calculatePlayerAverage } from '../lib/data'
     width: 84%;
     height: 31rem;
     margin: 0 auto;
-    opacity: .5;
+    opacity: 0.5;
     transform: perspective(250px) rotateX(8deg);
   }
 </style>
