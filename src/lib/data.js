@@ -1,7 +1,8 @@
-import {db, User, Team, Player} from 'astro:db'
+import {db, User, Team, Player, PlayerAttributes} from 'astro:db'
 const users = await db.select().from(User)
 const teams = await db.select().from(Team)
 const players = await db.select().from(Player)
+const playersAttributes = await db.select().from(PlayerAttributes)
 
 export const Users = [
   {
@@ -567,6 +568,11 @@ export function findPlayersByTeamId(teamId) {
   return players.filter(player => player.team_id === teamId);
 }
 
+// Función para buscar los atributos de un jugador por su ID
+export function findAttributesByPlayerId(playerId) {
+  return playersAttributes.find(attribute => attribute.player_id === playerId);
+}
+
 // Función para formatear un numero en una moneda
 export function formatNumber(amount, isCurrency = false) {
   if (isCurrency) {
@@ -579,15 +585,22 @@ export function formatNumber(amount, isCurrency = false) {
   }
 }
 
-// Función para calcular media de un jugador
-export function calculatePlayerAverage(player, includeDecimals = false, useGoalkeeperAttributes = false) {
+
+// Calcular la media de un jugador
+export function calculatePlayerAverage(playerId, includeDecimals = false) {
+  const playerAttributes = findAttributesByPlayerId(playerId);
+
+  if (!playerAttributes) {
+    return null;
+  }
+
   let attributeCount = 0;
   let totalAttributes = 0;
 
   // Función para sumar los atributos no nulos
   const sumNonZeroAttributes = (attributes) => {
     for (const key in attributes) {
-      if (Object.hasOwnProperty.call(attributes, key) && attributes[key] !== 0) {
+      if (Object.hasOwnProperty.call(attributes, key) && key !== 'player_id' && attributes[key] !== 0) {
         totalAttributes += attributes[key];
         attributeCount++;
       }
@@ -595,12 +608,7 @@ export function calculatePlayerAverage(player, includeDecimals = false, useGoalk
   };
 
   // Suma los atributos relevantes del jugador
-  sumNonZeroAttributes(player.attributes);
-
-  // Si el jugador es un portero y se solicita, también suma los atributos específicos del portero
-  if (player.isGoalkeeper && useGoalkeeperAttributes) {
-    sumNonZeroAttributes(player.attributesGoalkeeper);
-  }
+  sumNonZeroAttributes(playerAttributes);
 
   // Calcula la media de los atributos del jugador
   let average = totalAttributes / attributeCount;

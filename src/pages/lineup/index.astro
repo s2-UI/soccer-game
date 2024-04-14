@@ -2,7 +2,9 @@
 import WidgetPanel from '../../components/common/WidgetPanel.astro'
 import WidgetTable from '../../components/common/WidgetTable.astro'
 import Layout from '../../layouts/Layout.astro'
-import { Players, calculatePlayerAverage } from '../../lib/data.js'
+import { findPlayersByTeamId, calculatePlayerAverage } from '../../lib/data.js'
+
+const players = findPlayersByTeamId('1'); // TODO: get team id from URL
 ---
 
 <Layout
@@ -26,7 +28,7 @@ import { Players, calculatePlayerAverage } from '../../lib/data.js'
         </tr>
 
         {
-          Players.map((player, index) => (
+          players.map((player, index) => (
             <tr>
               <td class='font-bold'>{player.dorsal}</td>
               <td class='content-left'>
@@ -39,7 +41,7 @@ import { Players, calculatePlayerAverage } from '../../lib/data.js'
               <td class='font-bold'>{player.form}</td>
               <td class='font-bold'>{player.morale}</td>
               <td class='font-bold'>{player.energy}</td>
-              <td class='font-bold'>{calculatePlayerAverage(player, false, player.isGoalkeeper ? true : false)}</td>
+              <td class='font-bold'>{calculatePlayerAverage(player.id, false)}</td>
             </tr>
           ))
         }

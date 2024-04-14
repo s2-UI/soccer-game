@@ -1,6 +1,6 @@
-import { i as isRemoteImage, a as isESMImportedImage, b as isLocalService, D as DEFAULT_HASH_PROPS, c as isRemotePath, d as isRemoteAllowed } from '../astro/assets-service_BYq6tsZF.mjs';
+import { r as resolveSrc, i as isRemoteImage, a as isESMImportedImage, b as isLocalService, D as DEFAULT_HASH_PROPS, c as isRemotePath, d as isRemoteAllowed } from '../astro/assets-service_CxjaXO-X.mjs';
 import mime from 'mime/lite.js';
-import { A as AstroError, c as InvalidImageService, d as ExpectedImageOptions, E as ExpectedImage, F as FailedToFetchRemoteImageDimensions, e as createAstro, f as createComponent, g as ImageMissingAlt, r as renderTemplate, m as maybeRenderHead, h as addAttribute, s as spreadAttributes } from '../astro_DaX2_CQd.mjs';
+import { A as AstroError, c as InvalidImageService, d as ExpectedImageOptions, E as ExpectedImage, F as FailedToFetchRemoteImageDimensions, e as createAstro, f as createComponent, g as ImageMissingAlt, r as renderTemplate, m as maybeRenderHead, h as addAttribute, s as spreadAttributes } from '../astro_BsAnKZT1.mjs';
 import 'html-escaper';
 import 'clsx';
 
@@ -528,7 +528,6 @@ const units = {
   px: 1
 };
 const unitsReg = new RegExp(
-  // eslint-disable-next-line regexp/prefer-d
   `^([0-9.]+(?:e\\d+)?)(${Object.keys(units).join("|")})?$`
 );
 function parseLength(len) {
@@ -820,8 +819,8 @@ async function getConfiguredImageService() {
   if (!globalThis?.astroAsset?.imageService) {
     const { default: service } = await import(
       // @ts-expect-error
-      '../astro/assets-service_BYq6tsZF.mjs'
-    ).then(n => n.g).catch((e) => {
+      '../astro/assets-service_CxjaXO-X.mjs'
+    ).then(n => n.k).catch((e) => {
       const error = new AstroError(InvalidImageService);
       error.cause = e;
       throw error;
@@ -853,7 +852,7 @@ async function getImage$1(options, imageConfig) {
   const service = await getConfiguredImageService();
   const resolvedOptions = {
     ...options,
-    src: typeof options.src === "object" && "then" in options.src ? (await options.src).default ?? await options.src : options.src
+    src: await resolveSrc(options.src)
   };
   if (options.inferSize && isRemoteImage(resolvedOptions.src)) {
     try {
@@ -868,7 +867,7 @@ async function getImage$1(options, imageConfig) {
       });
     }
   }
-  const originalPath = isESMImportedImage(resolvedOptions.src) ? resolvedOptions.src.fsPath : resolvedOptions.src;
+  const originalFilePath = isESMImportedImage(resolvedOptions.src) ? resolvedOptions.src.fsPath : void 0;
   const clonedSrc = isESMImportedImage(resolvedOptions.src) ? (
     // @ts-expect-error - clone is a private, hidden prop
     resolvedOptions.src.clone ?? resolvedOptions.src
@@ -887,10 +886,14 @@ async function getImage$1(options, imageConfig) {
   );
   if (isLocalService(service) && globalThis.astroAsset.addStaticImage && !(isRemoteImage(validatedOptions.src) && imageURL === validatedOptions.src)) {
     const propsToHash = service.propertiesToHash ?? DEFAULT_HASH_PROPS;
-    imageURL = globalThis.astroAsset.addStaticImage(validatedOptions, propsToHash, originalPath);
+    imageURL = globalThis.astroAsset.addStaticImage(
+      validatedOptions,
+      propsToHash,
+      originalFilePath
+    );
     srcSets = srcSetTransforms.map((srcSet) => ({
       transform: srcSet.transform,
-      url: globalThis.astroAsset.addStaticImage(srcSet.transform, propsToHash, originalPath),
+      url: globalThis.astroAsset.addStaticImage(srcSet.transform, propsToHash, originalFilePath),
       descriptor: srcSet.descriptor,
       attributes: srcSet.attributes
     }));
@@ -965,14 +968,21 @@ const $$Picture = createComponent(async ($$result, $$props, $$slots) => {
   if (props.alt === void 0 || props.alt === null) {
     throw new AstroError(ImageMissingAlt);
   }
+  const originalSrc = await resolveSrc(props.src);
   const optimizedImages = await Promise.all(
     formats.map(
-      async (format) => await getImage({ ...props, format, widths: props.widths, densities: props.densities })
+      async (format) => await getImage({
+        ...props,
+        src: originalSrc,
+        format,
+        widths: props.widths,
+        densities: props.densities
+      })
     )
   );
   let resultFallbackFormat = fallbackFormat ?? defaultFallbackFormat;
-  if (!fallbackFormat && isESMImportedImage(props.src) && specialFormatsFallback.includes(props.src.format)) {
-    resultFallbackFormat = props.src.format;
+  if (!fallbackFormat && isESMImportedImage(originalSrc) && originalSrc.format in specialFormatsFallback) {
+    resultFallbackFormat = originalSrc.format;
   }
   const fallbackImage = await getImage({
     ...props,
@@ -995,7 +1005,6 @@ const $$Picture = createComponent(async ($$result, $$props, $$slots) => {
 }, "C:/Proyectos/soccer-game/node_modules/astro/components/Picture.astro", void 0);
 
 const imageConfig = {"service":{"entrypoint":"astro/assets/services/sharp","config":{}},"domains":[],"remotePatterns":[]};
-					new URL("file:///C:/Proyectos/soccer-game/.vercel/output/static/");
 					const getImage = async (options) => await getImage$1(options, imageConfig);
 
 async function loadRemoteImage(src) {

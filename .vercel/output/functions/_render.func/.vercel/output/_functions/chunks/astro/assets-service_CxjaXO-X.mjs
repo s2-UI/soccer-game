@@ -1,4 +1,4 @@
-import { A as AstroError, E as ExpectedImage, L as LocalImageUsedWrongly, M as MissingImageDimension, U as UnsupportedImageFormat, I as IncompatibleDescriptorOptions, a as UnsupportedImageConversion, b as MissingSharp } from '../astro_DaX2_CQd.mjs';
+import { A as AstroError, E as ExpectedImage, L as LocalImageUsedWrongly, M as MissingImageDimension, U as UnsupportedImageFormat, I as IncompatibleDescriptorOptions, a as UnsupportedImageConversion, b as MissingSharp } from '../astro_BsAnKZT1.mjs';
 
 function appendForwardSlash(path) {
   return path.endsWith("/") ? path : path + "/";
@@ -7,7 +7,7 @@ function prependForwardSlash(path) {
   return path[0] === "/" ? path : "/" + path;
 }
 function collapseDuplicateSlashes(path) {
-  return path.replace(/(?<!:)\/\/+/g, "/");
+  return path.replace(/(?<!:)\/{2,}/g, "/");
 }
 function removeTrailingForwardSlash(path) {
   return path.endsWith("/") ? path.slice(0, path.length - 1) : path;
@@ -33,10 +33,14 @@ function joinPaths(...paths) {
   }).join("/");
 }
 function isRemotePath(src) {
-  return /^(http|ftp|https|ws):?\/\//.test(src) || src.startsWith("data:");
+  return /^(?:http|ftp|https|ws):?\/\//.test(src) || src.startsWith("data:");
 }
 function slash(path) {
   return path.replace(/\\/g, "/");
+}
+function fileExtension(path) {
+  const ext = path.split(".").pop();
+  return ext !== path ? `.${ext}` : "";
 }
 
 const VALID_SUPPORTED_FORMATS = [
@@ -57,6 +61,9 @@ function isESMImportedImage(src) {
 }
 function isRemoteImage(src) {
   return typeof src === "string";
+}
+async function resolveSrc(src) {
+  return typeof src === "object" && "then" in src ? (await src).default ?? await src : src;
 }
 
 function matchPattern(url, remotePattern) {
@@ -326,6 +333,7 @@ async function loadSharp() {
   } catch (e) {
     throw new AstroError(MissingSharp);
   }
+  sharpImport.cache(false);
   return sharpImport;
 }
 const sharpService = {
@@ -377,4 +385,4 @@ const sharp$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   default: sharp_default
 }, Symbol.toStringTag, { value: 'Module' }));
 
-export { DEFAULT_HASH_PROPS as D, isESMImportedImage as a, isLocalService as b, isRemotePath as c, isRemoteAllowed as d, appendForwardSlash as e, collapseDuplicateSlashes as f, sharp$1 as g, isRemoteImage as i, joinPaths as j, prependForwardSlash as p, removeTrailingForwardSlash as r, slash as s, trimSlashes as t };
+export { DEFAULT_HASH_PROPS as D, isESMImportedImage as a, isLocalService as b, isRemotePath as c, isRemoteAllowed as d, appendForwardSlash as e, fileExtension as f, removeTrailingForwardSlash as g, collapseDuplicateSlashes as h, isRemoteImage as i, joinPaths as j, sharp$1 as k, prependForwardSlash as p, resolveSrc as r, slash as s, trimSlashes as t };

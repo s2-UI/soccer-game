@@ -1,5 +1,5 @@
 /* empty css                          */
-import { e as createAstro, f as createComponent, r as renderTemplate, m as maybeRenderHead, h as addAttribute, i as renderSlot, j as renderComponent, k as renderHead, l as createTransitionScope } from '../astro_DaX2_CQd.mjs';
+import { e as createAstro, f as createComponent, r as renderTemplate, m as maybeRenderHead, h as addAttribute, i as renderSlot, j as renderComponent, k as renderHead, l as createTransitionScope } from '../astro_BsAnKZT1.mjs';
 import 'kleur/colors';
 import 'html-escaper';
 /* empty css                          */
@@ -463,11 +463,12 @@ const db = await createRemoteDatabaseClient(process.env.ASTRO_STUDIO_APP_TOKEN, 
 const User = asDrizzleTable("User", { "columns": { "id": { "type": "text", "schema": { "unique": false, "deprecated": false, "name": "id", "collection": "User", "primaryKey": true } }, "name": { "type": "text", "schema": { "unique": false, "deprecated": false, "name": "name", "collection": "User", "primaryKey": false, "optional": false } }, "email": { "type": "text", "schema": { "unique": false, "deprecated": false, "name": "email", "collection": "User", "primaryKey": false, "optional": false } }, "currency": { "type": "number", "schema": { "unique": false, "deprecated": false, "name": "currency", "collection": "User", "primaryKey": false, "optional": false } }, "hardCurrency": { "type": "number", "schema": { "unique": false, "deprecated": false, "name": "hardCurrency", "collection": "User", "primaryKey": false, "optional": false } } }, "deprecated": false, "indexes": {} }, false);
 const Team = asDrizzleTable("Team", { "columns": { "id": { "type": "text", "schema": { "unique": false, "deprecated": false, "name": "id", "collection": "Team", "primaryKey": true } }, "name": { "type": "text", "schema": { "unique": false, "deprecated": false, "name": "name", "collection": "Team", "primaryKey": false, "optional": false } }, "shield": { "type": "text", "schema": { "unique": false, "deprecated": false, "name": "shield", "collection": "Team", "primaryKey": false, "optional": false } }, "points": { "type": "number", "schema": { "unique": false, "deprecated": false, "name": "points", "collection": "Team", "primaryKey": false, "optional": false } }, "wins": { "type": "number", "schema": { "unique": false, "deprecated": false, "name": "wins", "collection": "Team", "primaryKey": false, "optional": false } }, "plays": { "type": "number", "schema": { "unique": false, "deprecated": false, "name": "plays", "collection": "Team", "primaryKey": false, "optional": false } }, "user_id": { "type": "text", "schema": { "unique": false, "deprecated": false, "name": "user_id", "collection": "Team", "primaryKey": false, "optional": true, "references": { "type": "text", "schema": { "unique": false, "deprecated": false, "name": "id", "collection": "User", "primaryKey": true } } } } }, "deprecated": false, "indexes": {} }, false);
 const Player = asDrizzleTable("Player", { "columns": { "id": { "type": "text", "schema": { "unique": false, "deprecated": false, "name": "id", "collection": "Player", "primaryKey": true } }, "name": { "type": "text", "schema": { "unique": false, "deprecated": false, "name": "name", "collection": "Player", "primaryKey": false, "optional": false } }, "position": { "type": "number", "schema": { "unique": false, "deprecated": false, "name": "position", "collection": "Player", "primaryKey": false, "optional": false } }, "dorsal": { "type": "number", "schema": { "unique": false, "deprecated": false, "name": "dorsal", "collection": "Player", "primaryKey": false, "optional": false } }, "energy": { "type": "number", "schema": { "unique": false, "deprecated": false, "name": "energy", "collection": "Player", "primaryKey": false, "optional": false } }, "morale": { "type": "number", "schema": { "unique": false, "deprecated": false, "name": "morale", "collection": "Player", "primaryKey": false, "optional": false } }, "form": { "type": "number", "schema": { "unique": false, "deprecated": false, "name": "form", "collection": "Player", "primaryKey": false, "optional": false } }, "isGoalkeeper": { "type": "boolean", "schema": { "optional": false, "unique": false, "deprecated": false, "name": "isGoalkeeper", "collection": "Player" } }, "team_id": { "type": "text", "schema": { "unique": false, "deprecated": false, "name": "team_id", "collection": "Player", "primaryKey": false, "optional": true, "references": { "type": "text", "schema": { "unique": false, "deprecated": false, "name": "id", "collection": "Team", "primaryKey": true } } } } }, "deprecated": false, "indexes": {} }, false);
-asDrizzleTable("PlayerAttributes", { "columns": { "speed": { "type": "number", "schema": { "unique": false, "deprecated": false, "name": "speed", "collection": "PlayerAttributes", "primaryKey": false, "optional": false } }, "physical": { "type": "number", "schema": { "unique": false, "deprecated": false, "name": "physical", "collection": "PlayerAttributes", "primaryKey": false, "optional": false } }, "shooting": { "type": "number", "schema": { "unique": false, "deprecated": false, "name": "shooting", "collection": "PlayerAttributes", "primaryKey": false, "optional": false } }, "passing": { "type": "number", "schema": { "unique": false, "deprecated": false, "name": "passing", "collection": "PlayerAttributes", "primaryKey": false, "optional": false } }, "dribbling": { "type": "number", "schema": { "unique": false, "deprecated": false, "name": "dribbling", "collection": "PlayerAttributes", "primaryKey": false, "optional": false } }, "defense": { "type": "number", "schema": { "unique": false, "deprecated": false, "name": "defense", "collection": "PlayerAttributes", "primaryKey": false, "optional": false } }, "reflexes": { "type": "number", "schema": { "unique": false, "deprecated": false, "name": "reflexes", "collection": "PlayerAttributes", "primaryKey": false, "optional": false } }, "diving": { "type": "number", "schema": { "unique": false, "deprecated": false, "name": "diving", "collection": "PlayerAttributes", "primaryKey": false, "optional": false } }, "handling": { "type": "number", "schema": { "unique": false, "deprecated": false, "name": "handling", "collection": "PlayerAttributes", "primaryKey": false, "optional": false } }, "positioning": { "type": "number", "schema": { "unique": false, "deprecated": false, "name": "positioning", "collection": "PlayerAttributes", "primaryKey": false, "optional": false } }, "kicking": { "type": "number", "schema": { "unique": false, "deprecated": false, "name": "kicking", "collection": "PlayerAttributes", "primaryKey": false, "optional": false } }, "aerialReach": { "type": "number", "schema": { "unique": false, "deprecated": false, "name": "aerialReach", "collection": "PlayerAttributes", "primaryKey": false, "optional": false } }, "player_id": { "type": "text", "schema": { "unique": false, "deprecated": false, "name": "player_id", "collection": "PlayerAttributes", "primaryKey": true, "references": { "type": "text", "schema": { "unique": false, "deprecated": false, "name": "id", "collection": "Player", "primaryKey": true } } } } }, "deprecated": false, "indexes": {} }, false);
+const PlayerAttributes = asDrizzleTable("PlayerAttributes", { "columns": { "speed": { "type": "number", "schema": { "unique": false, "deprecated": false, "name": "speed", "collection": "PlayerAttributes", "primaryKey": false, "optional": false } }, "physical": { "type": "number", "schema": { "unique": false, "deprecated": false, "name": "physical", "collection": "PlayerAttributes", "primaryKey": false, "optional": false } }, "shooting": { "type": "number", "schema": { "unique": false, "deprecated": false, "name": "shooting", "collection": "PlayerAttributes", "primaryKey": false, "optional": false } }, "passing": { "type": "number", "schema": { "unique": false, "deprecated": false, "name": "passing", "collection": "PlayerAttributes", "primaryKey": false, "optional": false } }, "dribbling": { "type": "number", "schema": { "unique": false, "deprecated": false, "name": "dribbling", "collection": "PlayerAttributes", "primaryKey": false, "optional": false } }, "defense": { "type": "number", "schema": { "unique": false, "deprecated": false, "name": "defense", "collection": "PlayerAttributes", "primaryKey": false, "optional": false } }, "reflexes": { "type": "number", "schema": { "unique": false, "deprecated": false, "name": "reflexes", "collection": "PlayerAttributes", "primaryKey": false, "optional": false } }, "diving": { "type": "number", "schema": { "unique": false, "deprecated": false, "name": "diving", "collection": "PlayerAttributes", "primaryKey": false, "optional": false } }, "handling": { "type": "number", "schema": { "unique": false, "deprecated": false, "name": "handling", "collection": "PlayerAttributes", "primaryKey": false, "optional": false } }, "positioning": { "type": "number", "schema": { "unique": false, "deprecated": false, "name": "positioning", "collection": "PlayerAttributes", "primaryKey": false, "optional": false } }, "kicking": { "type": "number", "schema": { "unique": false, "deprecated": false, "name": "kicking", "collection": "PlayerAttributes", "primaryKey": false, "optional": false } }, "aerialReach": { "type": "number", "schema": { "unique": false, "deprecated": false, "name": "aerialReach", "collection": "PlayerAttributes", "primaryKey": false, "optional": false } }, "player_id": { "type": "text", "schema": { "unique": false, "deprecated": false, "name": "player_id", "collection": "PlayerAttributes", "primaryKey": true, "references": { "type": "text", "schema": { "unique": false, "deprecated": false, "name": "id", "collection": "Player", "primaryKey": true } } } } }, "deprecated": false, "indexes": {} }, false);
 
 const users = await db.select().from(User);
 await db.select().from(Team);
-await db.select().from(Player);
+const players = await db.select().from(Player);
+const playersAttributes = await db.select().from(PlayerAttributes);
 
 const Teams = [
   {
@@ -589,422 +590,19 @@ const Teams = [
   },
 ];
 
-const Players = [
-  {
-    id: '1',
-    name: 'Lluis Alsina',
-    teamId: '1',
-    dorsal: 25,
-    position: 2,
-    energy: 100,
-    morale: 90,
-    form: 80,
-    isGoalkeeper: false, // Indica si el jugador es portero o no
-    attributes: {
-      speed: 75,
-      physical: 73,
-      shooting: 80,
-      passing: 77,
-      dribbling: 78,
-      defense: 63,
-    },
-    attributesGoalkeeper: {
-      reflexes: 0,
-      diving: 0,
-      handling: 0,
-      positioning: 0,
-      kicking: 0,
-      aerialReach: 0,
-    },
-    globalStats: {
-      gamesPlayed: 9,
-      goals: 9,
-      assists: 6,
-      yellowCards: 2,
-      redCards: 0,
-    },
-    teamStats: {
-      gamesPlayed: 9,
-      goals: 9,
-      assists: 6,
-      yellowCards: 1,
-      redCards: 0,
-    }
-  },
-  {
-    id: '2',
-    name: 'Joan Canet',
-    teamId: '1',
-    dorsal: 7,
-    position: 0,
-    energy: 100,
-    morale: 90,
-    form: 80,
-    isGoalkeeper: true, // Indica si el jugador es portero o no
-    attributes: {
-      speed: 0,
-      physical: 0,
-      shooting: 0,
-      passing: 0,
-      dribbling: 0,
-      defense: 0,
-    },
-    attributesGoalkeeper: {
-      reflexes: 70,
-      diving: 72,
-      handling: 76,
-      positioning: 80,
-      kicking: 72,
-      aerialReach: 68,
-    },
-    globalStats: {
-      gamesPlayed: 9,
-      goals: 9,
-      assists: 6,
-      yellowCards: 2,
-      redCards: 0,
-    },
-    teamStats: {
-      gamesPlayed: 9,
-      goals: 9,
-      assists: 6,
-      yellowCards: 1,
-      redCards: 0,
-    }
-  },
-  {
-    id: '3',
-    name: 'Marc Granero',
-    teamId: '1',
-    dorsal: 23,
-    position: 1,
-    energy: 100,
-    morale: 90,
-    form: 80,
-    isGoalkeeper: false, // Indica si el jugador es portero o no
-    attributes: {
-      speed: 82,
-      physical: 78,
-      shooting: 86,
-      passing: 76,
-      dribbling: 79,
-      defense: 80,
-    },
-    attributesGoalkeeper: {
-      reflexes: 0,
-      diving: 0,
-      handling: 0,
-      positioning: 0,
-      kicking: 0,
-      aerialReach: 0,
-    },
-    globalStats: {
-      gamesPlayed: 9,
-      goals: 9,
-      assists: 6,
-      yellowCards: 2,
-      redCards: 0,
-    },
-    teamStats: {
-      gamesPlayed: 9,
-      goals: 9,
-      assists: 6,
-      yellowCards: 1,
-      redCards: 0,
-    }
-  },
-  {
-    id: '4',
-    name: 'Marcos Guerrero',
-    teamId: '1',
-    dorsal: 22,
-    position: 1,
-    energy: 100,
-    morale: 90,
-    form: 80,
-    isGoalkeeper: false, // Indica si el jugador es portero o no
-    attributes: {
-      speed: 68,
-      physical: 65,
-      shooting: 67,
-      passing: 62,
-      dribbling: 64,
-      defense: 67,
-    },
-    attributesGoalkeeper: {
-      reflexes: 0,
-      diving: 0,
-      handling: 0,
-      positioning: 0,
-      kicking: 0,
-      aerialReach: 0,
-    },
-    globalStats: {
-      gamesPlayed: 9,
-      goals: 9,
-      assists: 6,
-      yellowCards: 2,
-      redCards: 0,
-    },
-    teamStats: {
-      gamesPlayed: 9,
-      goals: 9,
-      assists: 6,
-      yellowCards: 1,
-      redCards: 0,
-    }
-  },
-  {
-    id: '5',
-    name: 'Raúl Ledo',
-    teamId: '1',
-    dorsal: 33,
-    position: 1,
-    energy: 100,
-    morale: 90,
-    form: 80,
-    isGoalkeeper: false, // Indica si el jugador es portero o no
-    attributes: {
-      speed: 67,
-      physical: 64,
-      shooting: 68,
-      passing: 64,
-      dribbling: 64,
-      defense: 70,
-    },
-    attributesGoalkeeper: {
-      reflexes: 0,
-      diving: 0,
-      handling: 0,
-      positioning: 0,
-      kicking: 0,
-      aerialReach: 0,
-    },
-    globalStats: {
-      gamesPlayed: 9,
-      goals: 9,
-      assists: 6,
-      yellowCards: 2,
-      redCards: 0,
-    },
-    teamStats: {
-      gamesPlayed: 9,
-      goals: 9,
-      assists: 6,
-      yellowCards: 1,
-      redCards: 0,
-    }
-  },
-  {
-    id: '6',
-    name: 'Marc Pluvins',
-    teamId: '1',
-    dorsal: 91,
-    position: 2,
-    energy: 100,
-    morale: 90,
-    form: 80,
-    isGoalkeeper: false, // Indica si el jugador es portero o no
-    attributes: {
-      speed: 75,
-      physical: 73,
-      shooting: 78,
-      passing: 70,
-      dribbling: 75,
-      defense: 78,
-    },
-    attributesGoalkeeper: {
-      reflexes: 0,
-      diving: 0,
-      handling: 0,
-      positioning: 0,
-      kicking: 0,
-      aerialReach: 0,
-    },
-    globalStats: {
-      gamesPlayed: 9,
-      goals: 9,
-      assists: 6,
-      yellowCards: 2,
-      redCards: 0,
-    },
-    teamStats: {
-      gamesPlayed: 9,
-      goals: 9,
-      assists: 6,
-      yellowCards: 1,
-      redCards: 0,
-    }
-  },
-  {
-    id: '7',
-    name: 'Albert Dalmau',
-    teamId: '1',
-    dorsal: 30,
-    position: 1,
-    energy: 100,
-    morale: 90,
-    form: 80,
-    isGoalkeeper: false, // Indica si el jugador es portero o no
-    attributes: {
-      speed: 72,
-      physical: 74,
-      shooting: 74,
-      passing: 68,
-      dribbling: 70,
-      defense: 76,
-    },
-    attributesGoalkeeper: {
-      reflexes: 0,
-      diving: 0,
-      handling: 0,
-      positioning: 0,
-      kicking: 0,
-      aerialReach: 0,
-    },
-    globalStats: {
-      gamesPlayed: 9,
-      goals: 9,
-      assists: 6,
-      yellowCards: 2,
-      redCards: 0,
-    },
-    teamStats: {
-      gamesPlayed: 9,
-      goals: 9,
-      assists: 6,
-      yellowCards: 1,
-      redCards: 0,
-    }
-  },
-  {
-    id: '8',
-    name: 'John de la Cruz',
-    teamId: '1',
-    dorsal: 8,
-    position: 3,
-    energy: 100,
-    morale: 90,
-    form: 80,
-    isGoalkeeper: false, // Indica si el jugador es portero o no
-    attributes: {
-      speed: 75,
-      physical: 70,
-      shooting: 71,
-      passing: 68,
-      dribbling: 67,
-      defense: 77,
-    },
-    attributesGoalkeeper: {
-      reflexes: 0,
-      diving: 0,
-      handling: 0,
-      positioning: 0,
-      kicking: 0,
-      aerialReach: 0,
-    },
-    globalStats: {
-      gamesPlayed: 9,
-      goals: 9,
-      assists: 6,
-      yellowCards: 2,
-      redCards: 0,
-    },
-    teamStats: {
-      gamesPlayed: 9,
-      goals: 9,
-      assists: 6,
-      yellowCards: 1,
-      redCards: 0,
-    }
-  },
-  {
-    id: '9',
-    name: 'Albert Ruiz',
-    teamId: '1',
-    dorsal: 9,
-    position: 3,
-    energy: 100,
-    morale: 90,
-    form: 80,
-    isGoalkeeper: false, // Indica si el jugador es portero o no
-    attributes: {
-      speed: 75,
-      physical: 72,
-      shooting: 73,
-      passing: 73,
-      dribbling: 77,
-      defense: 78,
-    },
-    attributesGoalkeeper: {
-      reflexes: 0,
-      diving: 0,
-      handling: 0,
-      positioning: 0,
-      kicking: 0,
-      aerialReach: 0,
-    },
-    globalStats: {
-      gamesPlayed: 9,
-      goals: 9,
-      assists: 6,
-      yellowCards: 2,
-      redCards: 0,
-    },
-    teamStats: {
-      gamesPlayed: 9,
-      goals: 9,
-      assists: 6,
-      yellowCards: 1,
-      redCards: 0,
-    }
-  },
-  {
-    id: '10',
-    name: 'Alberto Arnalot',
-    teamId: '1',
-    dorsal: 1,
-    position: 0,
-    energy: 100,
-    morale: 90,
-    form: 80,
-    isGoalkeeper: false, // Indica si el jugador es portero o no
-    attributes: {
-      speed: 0,
-      physical: 0,
-      shooting: 0,
-      passing: 0,
-      dribbling: 0,
-      defense: 0,
-    },
-    attributesGoalkeeper: {
-      reflexes: 82,
-      diving: 87,
-      handling: 81,
-      positioning: 72,
-      kicking: 82,
-      aerialReach: 80,
-    },
-    globalStats: {
-      gamesPlayed: 9,
-      goals: 9,
-      assists: 6,
-      yellowCards: 2,
-      redCards: 0,
-    },
-    teamStats: {
-      gamesPlayed: 9,
-      goals: 9,
-      assists: 6,
-      yellowCards: 1,
-      redCards: 0,
-    }
-  }
-];
-
 // Función para buscar un usuario por su ID
 function findUserById(userId) {
   return users.find(user => user.id === userId);
+}
+
+// Función para buscar jugadores de un equipo por su ID
+function findPlayersByTeamId(teamId) {
+  return players.filter(player => player.team_id === teamId);
+}
+
+// Función para buscar los atributos de un jugador por su ID
+function findAttributesByPlayerId(playerId) {
+  return playersAttributes.find(attribute => attribute.player_id === playerId);
 }
 
 // Función para formatear un numero en una moneda
@@ -1019,15 +617,22 @@ function formatNumber(amount, isCurrency = false) {
   }
 }
 
-// Función para calcular media de un jugador
-function calculatePlayerAverage(player, includeDecimals = false, useGoalkeeperAttributes = false) {
+
+// Calcular la media de un jugador
+function calculatePlayerAverage(playerId, includeDecimals = false) {
+  const playerAttributes = findAttributesByPlayerId(playerId);
+
+  if (!playerAttributes) {
+    return null;
+  }
+
   let attributeCount = 0;
   let totalAttributes = 0;
 
   // Función para sumar los atributos no nulos
   const sumNonZeroAttributes = (attributes) => {
     for (const key in attributes) {
-      if (Object.hasOwnProperty.call(attributes, key) && attributes[key] !== 0) {
+      if (Object.hasOwnProperty.call(attributes, key) && key !== 'player_id' && attributes[key] !== 0) {
         totalAttributes += attributes[key];
         attributeCount++;
       }
@@ -1035,12 +640,7 @@ function calculatePlayerAverage(player, includeDecimals = false, useGoalkeeperAt
   };
 
   // Suma los atributos relevantes del jugador
-  sumNonZeroAttributes(player.attributes);
-
-  // Si el jugador es un portero y se solicita, también suma los atributos específicos del portero
-  if (player.isGoalkeeper && useGoalkeeperAttributes) {
-    sumNonZeroAttributes(player.attributesGoalkeeper);
-  }
+  sumNonZeroAttributes(playerAttributes);
 
   // Calcula la media de los atributos del jugador
   let average = totalAttributes / attributeCount;
@@ -1102,7 +702,8 @@ const $$Astro$1 = createAstro();
 const $$Index$1 = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$1, $$props, $$slots);
   Astro2.self = $$Index$1;
-  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "", "description": "", "data-astro-cid-4kgod5xi": true }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<main class="container p-4 w-[91rem] grid grid-cols-2 gap-4" data-astro-cid-4kgod5xi> ${renderComponent($$result2, "WidgetPanel", $$WidgetPanel, { "title": "Squad", "data-astro-cid-4kgod5xi": true }, { "default": ($$result3) => renderTemplate` <div class="field" data-astro-cid-4kgod5xi></div> ` })} ${renderComponent($$result2, "WidgetPanel", $$WidgetPanel, { "title": "Lineup", "data-astro-cid-4kgod5xi": true }, { "default": ($$result3) => renderTemplate` ${renderComponent($$result3, "WidgetTable", $$WidgetTable, { "data-astro-cid-4kgod5xi": true }, { "default": ($$result4) => renderTemplate`  ${Players.map((player, index) => renderTemplate`<tr data-astro-cid-4kgod5xi> <td class="font-bold" data-astro-cid-4kgod5xi>${player.dorsal}</td> <td class="content-left" data-astro-cid-4kgod5xi> <img src="" alt="" data-astro-cid-4kgod5xi> <p data-astro-cid-4kgod5xi>${player.name}</p> </td> <td class="font-bold" data-astro-cid-4kgod5xi>${player.form}</td> <td class="font-bold" data-astro-cid-4kgod5xi>${player.morale}</td> <td class="font-bold" data-astro-cid-4kgod5xi>${player.energy}</td> <td class="font-bold" data-astro-cid-4kgod5xi>${calculatePlayerAverage(player, false, player.isGoalkeeper ? true : false)}</td> </tr>`)}`, "header": ($$result4) => renderTemplate`<tr data-astro-cid-4kgod5xi> <th data-astro-cid-4kgod5xi>Nº</th> <th class="content-left" data-astro-cid-4kgod5xi>Name</th> <th data-astro-cid-4kgod5xi>Forma</th> <th data-astro-cid-4kgod5xi>Moral</th> <th data-astro-cid-4kgod5xi>Energy</th> <th data-astro-cid-4kgod5xi>Average</th> </tr>` })} ` })} </main> ` })} `;
+  const players = findPlayersByTeamId("1");
+  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "", "description": "", "data-astro-cid-4kgod5xi": true }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<main class="container p-4 w-[91rem] grid grid-cols-2 gap-4" data-astro-cid-4kgod5xi> ${renderComponent($$result2, "WidgetPanel", $$WidgetPanel, { "title": "Squad", "data-astro-cid-4kgod5xi": true }, { "default": ($$result3) => renderTemplate` <div class="field" data-astro-cid-4kgod5xi></div> ` })} ${renderComponent($$result2, "WidgetPanel", $$WidgetPanel, { "title": "Lineup", "data-astro-cid-4kgod5xi": true }, { "default": ($$result3) => renderTemplate` ${renderComponent($$result3, "WidgetTable", $$WidgetTable, { "data-astro-cid-4kgod5xi": true }, { "default": ($$result4) => renderTemplate`  ${players.map((player, index) => renderTemplate`<tr data-astro-cid-4kgod5xi> <td class="font-bold" data-astro-cid-4kgod5xi>${player.dorsal}</td> <td class="content-left" data-astro-cid-4kgod5xi> <img src="" alt="" data-astro-cid-4kgod5xi> <p data-astro-cid-4kgod5xi>${player.name}</p> </td> <td class="font-bold" data-astro-cid-4kgod5xi>${player.form}</td> <td class="font-bold" data-astro-cid-4kgod5xi>${player.morale}</td> <td class="font-bold" data-astro-cid-4kgod5xi>${player.energy}</td> <td class="font-bold" data-astro-cid-4kgod5xi>${calculatePlayerAverage(player.id, false)}</td> </tr>`)}`, "header": ($$result4) => renderTemplate`<tr data-astro-cid-4kgod5xi> <th data-astro-cid-4kgod5xi>Nº</th> <th class="content-left" data-astro-cid-4kgod5xi>Name</th> <th data-astro-cid-4kgod5xi>Forma</th> <th data-astro-cid-4kgod5xi>Moral</th> <th data-astro-cid-4kgod5xi>Energy</th> <th data-astro-cid-4kgod5xi>Average</th> </tr>` })} ` })} </main> ` })} `;
 }, "C:/Proyectos/soccer-game/src/pages/lineup/index.astro", void 0);
 
 const $$file$1 = "C:/Proyectos/soccer-game/src/pages/lineup/index.astro";
@@ -1121,8 +722,6 @@ const $$Index = createComponent(async ($$result, $$props, $$slots) => {
   Astro2.self = $$Index;
   Teams.sort((a, b) => b.points - a.points);
   const users = await db.select().from(User);
-  await db.select().from(Team);
-  await db.select().from(Player);
   return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "", "description": "", "data-astro-cid-j7pv25f6": true }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<main class="container p-4 w-[91rem] grid gap-4 grid-cols-[30%1fr]" data-astro-cid-j7pv25f6> ${renderComponent($$result2, "WidgetPanel", $$WidgetPanel, { "title": "Clasificaci\xF3n", "data-astro-cid-j7pv25f6": true }, { "default": ($$result3) => renderTemplate` ${renderComponent($$result3, "WidgetTable", $$WidgetTable, { "data-astro-cid-j7pv25f6": true }, { "default": ($$result4) => renderTemplate`  ${Teams.map(({ name, points, wins, plays }, index) => renderTemplate`<div data-astro-cid-j7pv25f6> <tr data-astro-cid-j7pv25f6> <td${addAttribute(`font-bold ${index === 0 || index === 1 ? "green" : ""} ${index === 9 || index === 10 || index === 11 ? "red" : ""}`, "class")} data-astro-cid-j7pv25f6>${index + 1}</td> <td class="content-left" data-astro-cid-j7pv25f6> <img src="" alt="" data-astro-cid-j7pv25f6> <p data-astro-cid-j7pv25f6>${name}</p> </td> <td class="font-bold" data-astro-cid-j7pv25f6>${points}</td> <td class="font-bold" data-astro-cid-j7pv25f6>${plays}</td> <td class="font-bold" data-astro-cid-j7pv25f6>${wins}</td> </tr> </div>`)}`, "header": ($$result4) => renderTemplate`<tr data-astro-cid-j7pv25f6> <th data-astro-cid-j7pv25f6>Pos</th> <th class="content-left" data-astro-cid-j7pv25f6>Equipo</th> <th data-astro-cid-j7pv25f6>Pts</th> <th data-astro-cid-j7pv25f6>Pj</th> <th data-astro-cid-j7pv25f6>Pg</th> </tr>` })} ` })} <div class="grid grid-cols-2 grid-rows-2 gap-4" data-astro-cid-j7pv25f6> ${renderComponent($$result2, "WidgetPanel", $$WidgetPanel, { "title": "Partidos", "extraClass": "flex flex-col justify-around h-[calc(100%-2rem)]", "data-astro-cid-j7pv25f6": true }, { "default": ($$result3) => renderTemplate` <div class="grid grid-cols-3 p-2 bg-slate-500/10" data-astro-cid-j7pv25f6> <div class="flex flex-col items-center justify-center" data-astro-cid-j7pv25f6> <img class="w-12" src="/img/teams/183436923.png" alt="" data-astro-cid-j7pv25f6> <p data-astro-cid-j7pv25f6>Nombre Equipo</p> </div> <div class="flex flex-col items-center justify-center gap-2" data-astro-cid-j7pv25f6> <div class="flex justify-center items-center gap-2" data-astro-cid-j7pv25f6> <span class="font-semibold text-2xl" data-astro-cid-j7pv25f6>3</span> <span data-astro-cid-j7pv25f6>-</span> <span class="font-semibold text-2xl" data-astro-cid-j7pv25f6>0</span> </div> <button class="text-xs bg-blue-700 font-semibold px-2 py-1 rounded-sm" data-astro-cid-j7pv25f6>
 Ver partido
 </button> </div> <div class="flex flex-col items-center justify-center" data-astro-cid-j7pv25f6> <img class="w-12" src="/img/teams/726173891.png" alt="" data-astro-cid-j7pv25f6> <p data-astro-cid-j7pv25f6>Nombre Equipo</p> </div> </div> <div class="grid grid-cols-3 p-2 bg-slate-500/10" data-astro-cid-j7pv25f6> <div class="flex flex-col items-center justify-center" data-astro-cid-j7pv25f6> <img class="w-12" src="/img/teams/183436923.png" alt="" data-astro-cid-j7pv25f6> <p data-astro-cid-j7pv25f6>Nombre Equipo</p> </div> <div class="flex flex-col items-center justify-center gap-2" data-astro-cid-j7pv25f6> <div class="flex flex-col justify-center items-center" data-astro-cid-j7pv25f6> <span class="font-semibold" data-astro-cid-j7pv25f6>17:25:47</span> <span class="font-semibold" data-astro-cid-j7pv25f6>01/03/2024</span> </div> </div> <div class="flex flex-col items-center justify-center" data-astro-cid-j7pv25f6> <img class="w-12" src="/img/teams/726173891.png" alt="" data-astro-cid-j7pv25f6> <p data-astro-cid-j7pv25f6>Nombre Equipo</p> </div> </div> ` })} ${renderComponent($$result2, "WidgetPanel", $$WidgetPanel, { "title": "Econom\xEDa", "data-astro-cid-j7pv25f6": true }, { "default": ($$result3) => renderTemplate`  ` })} ${renderComponent($$result2, "WidgetPanel", $$WidgetPanel, { "title": "Correo", "data-astro-cid-j7pv25f6": true }, { "default": ($$result3) => renderTemplate`${users.map((user) => renderTemplate`<div data-astro-cid-j7pv25f6> <p data-astro-cid-j7pv25f6>${user.name}</p> </div>`)}` })} ${renderComponent($$result2, "WidgetPanel", $$WidgetPanel, { "title": "Temporada", "data-astro-cid-j7pv25f6": true })} </div> </main> ` })} `;
