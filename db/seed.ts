@@ -136,7 +136,7 @@ export default async function seed() {
       id: '1',
       name: 'Lluis Alsina',
       position: 2,
-      dorsal: '25',
+      dorsal: 25,
       energy: 100,
       morale: 100,
       form: 100,
