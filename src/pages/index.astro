@@ -7,6 +7,11 @@ import {Teams} from '../lib/data'
 import WidgetTable from '../components/common/WidgetTable.astro';
 
 Teams.sort((a, b) => b.points - a.points);
+
+import {db, User, Team, Player} from 'astro:db'
+const users = await db.select().from(User)
+const teams = await db.select().from(Team)
+const players = await db.select().from(Player)
 ---
 
 <Layout
@@ -91,7 +96,13 @@ Teams.sort((a, b) => b.points - a.points);
 			</WidgetPanel>
 
 			<WidgetPanel title='Correo'>
-
+        {
+          users.map(user => (
+            <div>
+              <p>{user.name}</p>
+            </div>
+          ))
+        }
 			</WidgetPanel>
 
 			<WidgetPanel title='Temporada'>

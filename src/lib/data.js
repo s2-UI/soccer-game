@@ -1,3 +1,8 @@
+import {db, User, Team, Player} from 'astro:db'
+const users = await db.select().from(User)
+const teams = await db.select().from(Team)
+const players = await db.select().from(Player)
+
 export const Users = [
   {
     id: '1',
@@ -544,17 +549,22 @@ export const Players = [
 
 // Función para buscar un usuario por su ID
 export function findUserById(userId) {
-  return Users.find(user => user.id === userId);
+  return users.find(user => user.id === userId);
 }
 
 // Función para buscar un equipo por su ID
 export function findTeamById(teamId) {
-  return Teams.find(team => team.id === teamId);
+  return teams.find(team => team.id === teamId);
 }
 
 // Función para buscar un jugador por su ID
 export function findPlayerById(playerId) {
-  return Players.find(player => player.id === playerId);
+  return players.find(player => player.id === playerId);
+}
+
+// Función para buscar jugadores de un equipo por su ID
+export function findPlayersByTeamId(teamId) {
+  return players.filter(player => player.team_id === teamId);
 }
 
 // Función para formatear un numero en una moneda
